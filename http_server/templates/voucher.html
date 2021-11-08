@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Расписка</title>
+    <link rel="stylesheet" href="/static/css/voucher.css">
+</head>
+<body>
+
+<button class="inputButton noPrint" id="print" onclick="window.print()">Печать</button>
+
+<div class="Container">
+
+    <p class="center bold">АКТ</p>
+    <p class="center bold">приема-передачи оборудования</p>
+    <p class="center bold italic">( во временное владение и пользование)</p>
+    <p class="empty"></p>
+
+    <p class="center flex space-between">
+        <span>г.Воронеж</span><span>{{ .date }}</span>
+    </p>
+    <p class="empty"></p>
+
+    <p>Мы, нижеподписавшиеся, составили настоящий акт о том, что от ПАО «Ростелеком» Воронежского филиала,
+        МОЛ Ведущий инженер-электроник Отдела эксплуатации информационных систем и платформ
+        Смирнов Сергей Николаевич передал на ответственное хранение сотруднику:</p>
+    <p>табельный номер: {{ .Emp.Table }}</p>
+    <p>должность: {{ .Emp.Job }}</p>
+    <p>подразделение: {{ .Emp.Department }}</p>
+    <p>ФИО: {{ .Emp.Name }}</p>
+    <p class="center">следующее оборудование</p>
+    <table class="center">
+        <thead>
+            <tr>
+                <th class="number">№ п/п</th>
+                <th class="name">Наименование</th>
+                <th class="serial">Серийный номер</th>
+                <th class="inventory">Инвентарный / номенклатурный номер</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="number">1</td>
+                <td class="name">{{ .Prop.Name }}</td>
+                <td class="serial">{{ .Prop.Serial }}</td>
+                <td class="inventory">{{ .Prop.Inventory }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Предоставление услуг по выдаче оборудования</p>
+    <p class="empty"></p>
+    <p>По заявке №{{ .Ticket }}</p>
+
+    <p class="list">1. Сторонами произведен осмотр оборудования/комплектующих, претензий к их состоянию
+        на момент передачи нет.</p>
+    <p class="list">2. Принявший оборудование обязуется хранить в целости и сохранности и вернуть
+        по первому требованию передавшего.</p>
+
+    <p>Оборудование передал:</p>
+    <p class="flex space-around">
+        <span>Ведущий инженер-электроник</span><span>Смирнов С.Н.</span>
+    </p>
+    <p class="empty"></p>
+
+    <p>Оборудование принял:</p>
+    <p class="flex space-around">
+        <span>{{ .Emp.Job }}</span><span>{{ .Emp.ShortName }}</span>
+    </p>
+
+
+</div>
+
+</body>
+</html>

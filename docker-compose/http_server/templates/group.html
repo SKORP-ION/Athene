@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head" }}
+<body>
+{{ template "header" }}
+<main>
+  <link rel="stylesheet" href="/static/css/group.css">
+  <div class="topPanel">
+    <a href="" id="goBack" class="inputButton">Назад</a>
+    <a href="" id="doAction" class="inputButton">Действие</a>
+  </div>
+
+  <div class="GroupInfo">
+    <p id="NameP">
+      <span id="Name"></span>
+    </p>
+    <p id="DescriptionP">
+      <span id="Description"></span>
+    </p>
+    <p id="DateP">
+      <span id="Created_at"></span>
+      <span id="Username"></span>
+    </p>
+  </div>
+  <div class="TableContainer" id="PropertyGroups">
+    <table class="TableHeader">
+      <thead>
+      <th class="Action">Состояние</th>
+      <th class="Serial">Серийный номер</th>
+      <th class="Inventory">Инвентарный номер</th>
+      <th class="Name">Название</th>
+      </thead>
+    </table>
+    <div class="TableBody">
+      <table id="GroupsTable">
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="/static/js/group/group.js"></script>
+</main>
+{{ template "footer" }}
+</body>
+</html>

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option go_package = "groups/api";
+
+import "google/protobuf/timestamp.proto";
+
+service Groups {
+  rpc CreateGroup(Group) returns (GroupStatus); //Создание группы
+  rpc RemoveGroup(Group) returns (GroupStatus); //Удаление группы
+  rpc GetGroups(GetGroupsReq) returns (GetGroupsRes); //Получить список групп
+  rpc AddPropToGroup(PropReq) returns (GroupStatus); //Добавить имущество в группу
+  rpc RemovePropFromGroup(PropReq) returns (GroupStatus); //Удалить имущество из группы
+  rpc IsInGroup(PropReq) returns (GroupStatus); //Имущество находится в этой группе?
+}
+
+message Group {
+  uint32 Id = 1;
+  string Name = 2;
+  string Description = 3;
+  google.protobuf.Timestamp CreatedAt = 4;
+  string WhoDisplayName = 5;
+}
+
+message GroupStatus {
+  bool Ok = 1;
+  string Message = 2;
+}
+
+message GetGroupsReq {
+  string Name = 1;
+}
+
+message GetGroupsRes {
+  repeated Group Groups = 1;
+}
+
+message PropReq{
+  uint32 GroupId = 1;
+  repeated uint32 PropIds = 2;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "ldap/api";
+
+service Ldap {
+  rpc SearchEmployee(SearchRequest) returns (SearchResponse);
+}
+
+message SearchRequest{
+  string Name = 1;
+}
+
+message SearchResponse {
+  repeated LdapEmployee Staff = 1;
+}
+
+message LdapEmployee {
+  string EmployeeNumber = 1;
+  string Name = 2;
+  string Manager = 3;
+  string Department = 4;
+  string JobTitle = 5;
+}

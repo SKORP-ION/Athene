@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+option go_package = "property/api";
+
+import "google/protobuf/timestamp.proto";
+
+service property {
+  rpc GetProperty(SearchParams) returns (Properties);
+  rpc GetWarehouses(EmptyPropertyRequest) returns (Warehouses);
+  rpc GetCount(SearchParams) returns (Count);
+  rpc GetActionsList(EmptyPropertyRequest) returns(GetActionsListResponse);
+  rpc GetOneProperty(GetOnePropertyRequest) returns(Property);
+  rpc IsOnWarehouse(IsInWarehouseReq) returns (PropStatus);
+  rpc SendToWarehouse(SendToWarhouseReq) returns (PropStatus);
+}
+
+message SearchParams {
+  string Inventory = 1;
+  string Serial = 2;
+  uint32 Action = 3;
+  uint32 Warehouse = 4;
+  uint32 Offset = 5;
+  uint32 Limit = 6;
+  string Order = 7;
+  string Name = 8;
+  repeated string Groups = 9;
+}
+
+message Properties {
+  repeated Property Properties = 1;
+}
+
+message Property {
+  uint32 Id = 1;
+  string Inventory = 2;
+  string Serial = 3;
+  string Name = 4;
+  google.protobuf.Timestamp Created_at = 5;
+  google.protobuf.Timestamp Updated_at = 6;
+  uint32 Warehouse = 7;
+  uint32 State = 8;
+}
+
+message Warehouse{
+  uint32 Id = 1;
+  string Name = 2;
+}
+
+message Warehouses{
+  repeated Warehouse Data = 1;
+}
+
+message EmptyPropertyRequest{}
+message EmptyPropertyResponse{}
+
+message Count{
+  uint64 Number = 1;
+}
+
+message GetActionsListResponse {
+  repeated OneAction Actions = 1;
+}
+
+message OneAction {
+  uint32 Id = 1;
+  string Name = 2;
+  string Action = 3;
+}
+
+message GetOnePropertyRequest{
+  uint32 Id = 1;
+}
+
+message IsInWarehouseReq{
+  uint32 WarehouseId = 1;
+  uint32 PropertyId = 2;
+}
+
+message PropStatus {
+  bool Ok = 1;
+  string Message = 2;
+}
+
+message SendToWarhouseReq {
+  uint32 WarehouseId = 1;
+  repeated uint32 PropertiesId = 2;
+}

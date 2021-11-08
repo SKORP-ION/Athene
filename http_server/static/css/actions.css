@@ -1,0 +1,157 @@
+.PropertyInfo span {
+    height: 30px;
+    line-height: 30px;
+}
+
+.PropertyInfo .inputText {
+    font-size: 1em;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    transition: height .1s ease-in, width .1s ease-in;
+}
+
+.PropertyInfo textarea {
+    font-size: 1.2em;
+    width: 600px;
+    height: 100px;
+}
+
+.PropertyInfo > p {
+    justify-content: center;
+    margin: 4px;
+}
+
+.PropertyInfo > p > * {
+    margin-right: 20px;
+}
+
+.PropertyInfo #groups {
+    width: 0;
+    height: 0;
+    transition: height .1s ease-in, width .1s ease-in;
+}
+
+.inputSelect {
+    height: 36px;
+    width: 400px;
+    font-size: 1.2em;
+}
+
+.TableContainer {
+    height: 400px;
+}
+
+.TableBody tr {
+    border: none;
+}
+
+.TableBody td {
+    border: 1px solid #3a4854;
+    background-color: #eaeaea;
+    line-height: 36px;
+    white-space: nowrap;
+}
+
+.TableBody .Remove {
+    background-color: white;
+    border: none;
+}
+
+.TableBody .Remove img:hover {
+    opacity: 100%;
+}
+
+.Remove img {
+    position: sticky;
+    left: calc(50% - 24px);
+    cursor: pointer;
+    opacity: .1;
+    transition: opacity .1s ease-in;
+}
+
+.Remove {
+    width: 3%;
+}
+
+.Inventory {
+    width: 20%;
+}
+
+.Serial {
+    width: 20%;
+}
+
+.Status {
+    width: 5%;
+}
+
+.TableBody  .Editable {
+    background-color: white;
+    cursor: text;
+}
+
+td a {
+    display: flex;
+    justify-content: center;
+}
+
+.datalist {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    width: auto;
+    visibility: hidden;
+    transition: height 0.1s ease-in;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #3a4854;
+    background-color: white;
+    z-index: 3;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.datalist ul {
+    margin: 0;
+    padding: 0;
+}
+
+.datalist li {
+    width: 600px;
+    height: 40px;
+    margin: 0;
+    padding-left: 10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    user-select: none;
+    cursor: pointer;
+    line-height: 40px;
+    vertical-align: center;
+}
+
+.datalist li:hover {
+    background-color: #ecedff;
+}
+
+#inputsP {
+    display: flex;
+    align-items: center;
+}
+
+.clearEmployee {
+    height: 24px;
+    width: 24px;
+    opacity: .2;
+    cursor: pointer;
+}
+
+.clearEmployee:hover {
+    opacity: 1;
+}
+
+.fixed {
+    background-color: #f5f5f5;
+}

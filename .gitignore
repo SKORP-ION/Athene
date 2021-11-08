@@ -1,0 +1,8 @@
+.idea
+docker-compose/auth/auth
+docker-compose/groups/groups
+docker-compose/history/history
+docker-compose/http_server/http_server
+docker-compose/ldap/ldap
+docker-compose/property/property
+docker-compose/staff/staff

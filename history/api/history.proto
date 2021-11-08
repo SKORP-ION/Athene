@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+option go_package = "history/api";
+
+import "google/protobuf/timestamp.proto";
+
+service ActionsAndHistory {
+  //Getters
+  rpc GetActions(Empty) returns (GetActionsResponse); //Получить список действий
+  rpc GetHistory(HistoryRequest) returns (HistoryResponse); //Получить историю для имущества
+
+  //Создание записей
+  rpc CreateCard(ActionRequest) returns (StatusWithProperties); //Создание карточек
+  rpc InstallOnWorkspace(ActionRequest) returns (Status); //Установить на рабочее место
+  rpc RemoveFromWorkspace(ActionRequest) returns (Status); //Снять с рабочего места
+  rpc NeedRepair(ActionRequest) returns (Status); //Нуждается в ремонте
+  rpc SendToRepair(ActionRequest) returns (Status); //Отправлено в ремонт
+  rpc ReceiveFromRepair(ActionRequest) returns (Status); //Принято с ремонта
+  rpc Archive(ActionRequest) returns (Status); //Архивирование
+  rpc DeArchive(ActionRequest) returns (Status); //Деархивировать
+  rpc ChangeName(ActionRequest) returns (Status); //Смена имени
+  rpc ChangeInventory(ActionRequest) returns (Status); //Смена инвентарного номера
+  rpc AddToGroup(ActionRequest) returns (Status); //Добавление в группу
+  rpc RemoveFromGroup(ActionRequest) returns (Status); //Удаление из группы
+  rpc SendToWarehouse(ActionRequest) returns (Status); //Перемещение на другой склад
+  rpc GiveToEmployee(ActionRequest) returns (Status); //Выдать пользователю
+  rpc TakeFromEmployee(ActionRequest) returns (Status); //Забрать у пользователя
+
+  //Проверки на существование и доступность ввода
+  rpc IsCreated(PropertySerial) returns (StatusWithProperty); //Существует имущество с таким серийником?
+  rpc IsOnWorkspace(PropertySerial) returns (Status); //Оно сейчас на рабочем месте?
+  rpc IsNeedsRepair(PropertySerial) returns (Status); //Нуждается в ремонте?
+  rpc IsUnderRepair(PropertySerial) returns (Status); //Сейчас в ремонте?
+  rpc IsInStock(PropertySerial) returns (Status); //Сейчас на складе? Значит, можно выдать.
+  rpc IsInArchive(PropertySerial) returns (Status); //Сейчас в архиве?
+}
+
+message Status {
+  bool Ok = 1;
+  string Message = 2;
+}
+
+message StatusWithProperty {
+  bool Ok = 1;
+  string Message = 2;
+  ExistsProperty Property = 3;
+}
+
+message StatusWithProperties {
+  bool Ok = 1;
+  string Message = 2;
+  repeated ExistsProperty Properties = 3;
+}
+
+message ExistsProperty {
+  uint32 Id = 1;
+  string Inventory = 2;
+  string Serial = 3;
+  string Name = 4;
+}
+
+message CreateCardRequest {
+  string Serial = 1;
+  string Inventory = 2;
+  string Name = 3;
+}
+
+//GetHistory
+message HistoryRequest {
+  uint32 Id = 1;
+}
+
+message HistoryResponse {
+  repeated Record Records = 1;
+}
+
+message Record {
+  uint32 Action = 1;
+  string Note = 2;
+  google.protobuf.Timestamp Date = 3;
+  string User = 4;
+}
+
+//Coming
+message ActionRequest {
+  string User = 1;
+  string Note = 2;
+  repeated HistoryProperty Properties = 3;
+  uint32 SearchId = 4; //ID для поиска. Например, склада или группы
+}
+
+message HistoryProperty {
+  uint32 id = 1;
+  string Inventory = 2;
+  string Serial = 3;
+  string Name = 4;
+}
+
+//In storage
+message AcceptRequest {
+  string User = 1;
+  string Name = 2;
+  string Note = 3;
+  repeated string Serial = 4;
+}
+
+//Give to employee
+message GiveToEmployeeRequest {
+  string User = 1;
+  repeated int64 Ids = 2;
+  Employee Employee = 3;
+}
+
+message Employee {
+  string EmployeeNumber = 1;
+  string Name = 2;
+  string Manager = 3;
+  string Department = 4;
+  string JobTitle = 5;
+}
+
+message GetActionsResponse {
+  repeated Action Actions = 1;
+}
+
+message Action {
+  uint32 Id = 1;
+  string Name = 2;
+}
+
+message Empty{}
+
+message PropertySerial {
+  string Serial = 1;
+}

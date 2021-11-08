@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head" }}
+<body>
+{{ template "header" }}
+<main>
+    <link rel="stylesheet" href="/static/css/getProperty.css">
+    <form name="SearchParams" id="getPropertyForm">
+        <input type="search" name="inventory" placeholder="Инвентарный номер"
+               class="formChield inputText" id="inventory">
+        <input type="search" name="serial" placeholder="Серийный номер"
+               class="formChield inputText" id="serial">
+        <input type="search" name="name" placeholder="Название"
+               class="formChield inputText" id="name">
+        <input type="search" name="groups" placeholder="Группы"
+               class="formChield inputText" id="groups" list="groupsList" multiple
+                title="Вводите название групп через запятую" autocomplete="off">
+        <datalist id="groupsList">
+
+        </datalist>
+        <select name="action" class="formChield inputSelect" id="states">
+        </select>
+        <select name="warehouse" id="warehouses" class="formChield inputSelect">
+        </select>
+        <input type="submit" class="formChield inputButton" value="Поиск">
+        <a href="#" class="formChield inputButton" style="margin-left: 50px; width: 160px;" id="doAction">
+            Выполнить действие
+        </a>
+    </form>
+
+    <div id="pagesDiv">
+    </div>
+
+    <div class="topPanel" id="limitSelector">
+        <input form="getPropertyForm" type="submit" value="10" name="limit">
+        <input form="getPropertyForm" type="submit" value="30" name="limit">
+        <input form="getPropertyForm" type="submit" value="50" name="limit">
+        <input form="getPropertyForm" type="submit" value="100" name="limit">
+        <input form="getPropertyForm" type="submit" value="200" name="limit">
+    </div>
+
+    <div id="PropertyDiv">
+        <table class="PropertyTable" id="PropertyTable">
+            <tr class="TableHeader">
+                <td></td>
+                <td><span class="Ordered" id="orderInventory">Инвентарный номер</span></td>
+                <td><span class="Ordered" id="orderSerial">Серийный номер</span></td>
+                <td><span class="Ordered" id="orderName">Название</span></td>
+                <td><span class="Ordered" id="orderCreated_at">Добавлено</span></td>
+                <td><span class="Ordered" id="orderUpdated_at">Обновлено</span></td>
+                <td><span class="Ordered" id="orderWarehouse">Площадка</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="ctxMenu" id="ctxMenu">
+        <span class="menu" id="openProperty">Открыть</span>
+        <span class="menu" id="openInNewTab">Открыть в новой вкладке</span>
+        <span class="menu" id="selectAll">Выбрать всё</span>
+        <span class="menu" id="copySelect">
+            Копировать
+            <div class="ctxMenu subCtx">
+                <span class="menu submenu" id="copySelected">Всю информацию</span>
+                <span class="menu submenu" id="copyInventory">Инвентарники</span>
+                <span class="menu submenu" id="copySerial">Серийники</span>
+                <span class="menu submenu" id="copyName">Названия</span>
+            </div>
+        </span>
+        <span class="separator"></span>
+        <span class="menu" id="action">Действие</span>
+    </div>
+    <script src="/static/js/getProperty/tableActions.js"></script>
+    <script src="/static/js/getProperty/getProperty.js"></script>
+    <script src="/static/js/getProperty/getProperty_ctx.js"></script>
+</main>
+{{ template "footer" }}
+</body>
+</html>

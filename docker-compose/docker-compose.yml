@@ -1,0 +1,128 @@
+version: "3.9"
+services:
+  http_server:
+    container_name: http_server
+    build: http_server
+    ports:
+      - 5000:5000
+    environment:
+      - host=:443
+      - domain=domain
+      - cert=cert.pem
+      - privkey=privkey.pem
+      - property_host=property:5002
+      - auth_host=auth:5003
+      - ldap_host=ldap:5004
+      - history_host=history:5005
+      - groups_host=groups:5006
+      - staff_host=staff:5007
+      - TZ=Europe/Moscow
+    expose:
+      - 5002
+      - 5003
+      - 5004
+      - 5005
+      - 5006
+      - 5007
+    links:
+      - auth
+      - property
+      - groups
+      - staff
+      - ldap
+      - history
+  property:
+    container_name: property
+    build: property
+    ports:
+      - 5002:5002
+    environment:
+      - dbUser=user
+      - dbPassword=password
+      - dbName=athene
+      - dbHost=host
+      - dbPort=5432
+      - serviceHost=:5002
+      - TZ=Europe/Moscow
+    expose:
+      - 5432
+    restart: always
+  auth:
+    container_name: auth
+    build: auth
+    ports:
+      - 5003:5003
+    environment:
+      - dbUser=user
+      - dbPassword=password
+      - dbName=athene
+      - dbHost=host
+      - dbPort=5432
+      - serviceHost=:5003
+      - TZ=Europe/Moscow
+    expose:
+      - 5432
+    restart: always
+  ldap:
+    container_name: ldap
+    build: ldap
+    ports:
+      - 5004:5004
+    environment:
+      - ldapUsername=username
+      - ldapPassword=password
+      - ldapAddr=address:389
+      - DN=DN with separator ";"
+      - serviceHost=:5004
+      - TZ=Europe/Moscow
+    expose:
+      - 389
+    restart: always
+  history:
+    container_name: history
+    build: history
+    ports:
+      - 5005:5005
+    environment:
+      - dbUser=user
+      - dbPassword=password
+      - dbName=athene
+      - dbHost=host
+      - dbPort=5432
+      - serviceHost=:5005
+      - TZ=Europe/Moscow
+    expose:
+      - 5432
+    restart: always
+  groups:
+    container_name: groups
+    build: groups
+    ports:
+      - 5006:5006
+    environment:
+      - dbUser=user
+      - dbPassword=password
+      - dbName=athene
+      - dbHost=host
+      - dbPort=5432
+      - serviceHost=:5006
+      - TZ=Europe/Moscow
+    expose:
+      - 5432
+    restart: always
+  staff:
+    container_name: staff
+    build: staff
+    ports:
+      - 5007:5007
+    environment:
+      - dbUser=user
+      - dbPassword=password
+      - dbName=athene
+      - dbHost=host
+      - dbPort=5432
+      - serviceHost=:5007
+      - TZ=Europe/Moscow
+    expose:
+      - 5432
+    restart: always

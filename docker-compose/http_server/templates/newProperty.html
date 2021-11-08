@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head" }}
+<body>
+{{ template "header" }}
+<main>
+    <link rel="stylesheet" href="/static/css/newProperty.css">
+    <div class="Container">
+        <div class="TableContainer NewProperty">
+            <p class="ContainerHeader">Новое оборудование</p>
+            <table class="TableHeader">
+                <thead>
+                <th class="col1">Инвентарный номер</th>
+                <th class="col2">Серийный номер</th>
+                <th class="col3">Название</th>
+                </thead>
+            </table>
+            <div class="TableBody" id="NewTableBody">
+                <table class="AddedTable ContentTable">
+                    {{ range .NewProperty }}
+                    <tr id="row{{ .Inventory }}New">
+                        <td class="col1 Inventory">{{ .Inventory }}</td>
+                        <td class="col2 Serial">{{ .Serial }}</td>
+                        <td class="col3 Name">{{ .Name  }}</td>
+                    </tr>
+                    {{ end }}
+                </table>
+            </div>
+        </div>
+        <div class="TableContainer OldProperty">
+            <p class="ContainerHeader">Ушедшее оборудование</p>
+            <table class="TableHeader">
+                <thead>
+                <th>Инвентарный номер</th>
+                <th>Серийный номер</th>
+                <th>Название</th>
+                </thead>
+            </table>
+            <div class="TableBody" id="OldTableBody">
+                <table class="DeleteTable ContentTable">
+                    {{ range .DeleteProperty }}
+                    <tr id="row{{ .Inventory }}Old">
+                        <td class="col1 Inventory">{{ .Inventory }}</td>
+                        <td class="col2 Serial">{{ .Serial }}</td>
+                        <td class="col3 Name">{{ .Name  }}</td>
+                    </tr>
+                    {{ end }}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="ctxMenu">
+        <span class="menu" id="selectAll">Выбрать всё</span>
+        <span class="separator"></span>
+        <span class="menu" id="saveWithNote">Сохранить с заметкой</span>
+        <span class="menu" id="saveWithoutNote">Сохранить без заметки</span>
+        <span class="menu" id="sendToArchive">Отправить в архив</span>
+        <span class="menu" id="skip">Пропустить</span>
+    </div>
+    <div id="PopUpWindow">
+        <p id="PopUpMessage">Введите текст заметки</p>
+        <textarea placeholder="Введите текст заметки" id="PopUpInput"></textarea>
+        <input class="inputButton" type="submit" title="Подтвердить" id="PopUpButton">
+    </div>
+    <div id="BlackBackGround">
+    </div>
+    <script src="/static/js/r12TablesActions.js"></script>
+    <script src="/static/js/r12Rest.js"></script>
+</main>
+{{ template "footer" }}
+</body>
+</html>

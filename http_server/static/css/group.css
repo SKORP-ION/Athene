@@ -1,0 +1,129 @@
+.GroupInfo {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+    justify-content: center;
+}
+
+.GroupInfo > p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+p > span {
+    font-family: sans-serif;
+}
+
+.GroupInfo > #NameP {
+    justify-content: space-between;
+    margin: 0 2% 0 2%;
+}
+
+#Name {
+    font-size: 2em;
+    align-self: center;
+}
+
+#Description {
+    font-size: 1.5em;
+    align-self: center;
+}
+
+#Description:before {
+    content: "Описание: ";
+}
+
+#Created_at {
+    font-size: 1em;
+}
+#Created_at:before {
+    content: "Создан: ";
+}
+
+#Username {
+    font-size: 1em;
+}
+#Username:before{
+    content: "Создал: ";
+}
+
+.TableContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    height: 500px;
+    margin: 10px auto 0 auto;
+    padding: 10px 5px 10px 20px;
+    border: #3a4854 solid 2px;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(58, 72, 84, 0.44);
+}
+
+.TableHeader {
+    margin: 10px auto 10px auto;
+    align-self: center;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+.TableHeader * {
+    font-weight: normal;
+}
+
+.TableBody {
+    height: 500px;
+    overflow-x: auto;
+}
+
+table {
+    margin: auto;
+    width: calc(100% - 2px);
+    border-collapse: collapse;
+}
+
+tbody > tr {
+    border-bottom: 2px solid darkgrey;
+    padding-top: 20px;
+    cursor: default;
+    height: 48px;
+    /*transition: height .2s linear, vertical-align .2s linear;*/
+    transition-duration: .2s;
+
+}
+
+tr > td {
+    transition: transform .1s linear;
+    user-select: none;
+    line-height: 48px;
+}
+
+tbody > tr:hover {
+    background-color: #cccddc;
+}
+
+tbody > tr:active {
+    background-color: #ecedff;
+    user-select: none;
+}
+
+.statusIcon {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.Action {
+    width: 5%;
+}
+
+.Serial {
+    width: 20%;
+}
+
+.Inventory {
+    width: 20%;
+}

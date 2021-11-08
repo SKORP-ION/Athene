@@ -1,0 +1,267 @@
+body {
+    background-color: #fcfdff;
+    margin: 0;
+    position: relative;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    height: 100px;
+    background-color: #3a4854;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+
+header  a {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    align-self: center;
+    transition: filter .2s ease-in;
+}
+
+header a:hover {
+    filter: brightness(120%);
+}
+
+.AtheneName {
+    font-size: 2em;
+    font-family: sans-serif;
+    margin: 0;
+    padding-left: 30px;
+    line-height: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    overflow-x: hidden;
+    color: #f0f0ff;
+}
+
+.AtheneIcon {
+    width: 64px;
+    pointer-events: none;
+}
+
+.nav {
+    font-size: 1.2em;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #dcdce8;
+    margin: 0 0 0 40px;
+}
+
+.Logout {
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: sans-serif;
+    align-self: center;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: 50px;
+    color: #f0f0ff;
+}
+
+main {
+    position: static;
+    margin: 20px auto;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    min-height: calc(100vh - 180px);
+}
+
+footer {
+    height: 40px;
+    position: relative;
+    background-color: #3a4854;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer > p {
+    padding-right: 50px;
+    font-size: 14px;
+    color: #f0f0ff;
+}
+
+input {
+    padding: 6px 6px 4px 10px;
+    border: #3a4854 solid 1px;
+    border-radius: 15px;
+    height: 20px;
+}
+
+.inputText {
+    height: 30px;
+    padding: 0 5px 0 10px;
+    outline: none;
+    transition: border-radius .1s linear;
+}
+
+.inputText:focus {
+    border-radius: 5px;
+}
+
+.inputSelect {
+    border: #3a4854 solid 1px;
+    border-radius: 6px;
+    padding-left: 10px;
+    transition: border-radius .1s linear;
+    outline: none;
+}
+
+.inputSelect:focus {
+    border-radius: 12px 12px 0 0;
+}
+
+.inputButton {
+    border: #3a4854 solid 1px;
+    border-radius: 15px;
+    background-color: inherit;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    transition: border-radius 0.2s linear, background-color 0.2s linear;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.inputButton:hover {
+    background-color: #cccddc;
+    border-radius: 5px;
+}
+
+.inputCheck {
+    width: 24px;
+    height: 24px;
+}
+
+/*Контекстное меню*/
+.ctxMenu {
+    display:flex;
+    flex-direction: column;
+    z-index:100;
+    box-shadow: 0 0 20px rgba(58, 72, 84, 0.20);
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    border: #3a4854 solid 1px;
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+}
+
+.menu {
+    display: block;
+    left: 0;
+    top: 0;
+    height: 0;
+    line-height: 30px;
+    width: 0;
+    padding: 5px 5px 5px 10px;
+    margin: 0;
+    font-weight: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    overflow: unset;
+    border: none;
+    background-clip: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: height .1s linear, width .1s linear;
+}
+
+.ctxMenu .subCtx {
+    left: 250px;
+    top: -35px;
+    z-index: 101;
+    width: 265px;
+    display: block;
+    position: relative;
+    visibility: hidden;
+}
+
+.menu:hover {
+    background-color: #ecedff;
+}
+
+.separator {
+    height: 1px;
+    border-bottom: #3a4854 1px dashed;
+}
+
+.topPanel {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+}
+
+/*Datalist*/
+.datalist {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0;
+    width: auto;
+    visibility: hidden;
+    transition: height 0.1s ease-in;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #3a4854;
+    background-color: white;
+    z-index: 3;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.datalist ul {
+    margin: 0;
+    padding: 0;
+}
+
+.datalist li {
+    width: 600px;
+    height: 40px;
+    margin: 0;
+    padding-left: 10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    user-select: none;
+    cursor: pointer;
+    line-height: 40px;
+    vertical-align: center;
+}
+
+.datalist li:hover {
+    background-color: #ecedff;
+}
+
+#inputsP {
+    display: flex;
+    align-items: center;
+}
+
+.clearEmployee {
+    height: 24px;
+    width: 24px;
+    opacity: .2;
+    cursor: pointer;
+}
+
+.clearEmployee:hover {
+    opacity: 1;
+}

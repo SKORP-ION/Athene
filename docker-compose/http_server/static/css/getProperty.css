@@ -1,0 +1,166 @@
+
+
+#getPropertyForm {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#getPropertyForm > input {
+    padding: 6px 6px 4px 10px;
+    border: #3a4854 solid 1px;
+    border-radius: 15px;
+    height: 20px;
+}
+
+#getPropertyForm > .formChield {
+    margin: 10px;
+}
+
+#getPropertyForm > .inputText {
+    height: 30px;
+    padding: 0 5px 0 10px;
+    outline: none;
+    transition: border-radius .1s ease-in;
+}
+
+#getPropertyForm > .inputText:focus {
+    border-radius: 5px;
+}
+
+#getPropertyForm > .inputSelect {
+    width: 140px;
+    border: #3a4854 solid 1px;
+    border-radius: 6px;
+    padding-left: 10px;
+    transition: border-radius .1s ease-in;
+    outline: none;
+}
+
+#getPropertyForm > .inputSelect:focus {
+    border-radius: 12px 12px 0 0;
+}
+
+#getPropertyForm > #states {
+    width: 220px;
+}
+
+#getPropertyForm > .inputButton {
+    background-color: inherit;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    transition: border-radius 0.2s ease-in, background-color 0.2s ease-in;
+}
+
+#getPropertyForm > .inputButton:hover {
+    background-color: #cccddc;
+    border-radius: 5px;
+}
+
+#getPropertyForm > #groups::before {
+    content: "cyka";
+}
+
+.PropertyTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.PropertyTable > tr {
+    border-bottom: 2px solid darkgrey;
+    padding-top: 20px;
+    cursor: default;
+    transition: background-color .1s ease-in;
+}
+
+.PropertyTable > tr:hover {
+    background-color: #cccddc;
+}
+
+.PropertyTable > tr:active {
+    background-color: #ecedff;
+    user-select: none;
+}
+
+.selected {
+    background-color: #ecedff;
+    border: #3a4854 dotted 2px;
+}
+
+.PropertyTable > tr > td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-wrap: normal;
+}
+
+#pagesDiv {
+    position: static;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+#pagesDiv > a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: inherit;
+    border-left: solid black 1px;
+    border-right: solid black 1px;
+    border-top: none;
+    border-bottom: none;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    color: black;
+}
+
+#pagesDiv > span {
+    line-height: 30px;
+    vertical-align: center;
+    padding: 0 10px 0 10px;
+}
+
+#pagesDiv > a:hover {
+    background-color: #d7d9e3;
+}
+
+#pagesDiv > .selected {
+    background-color: #cccddc;
+}
+.statusIcon {
+    width: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.Ordered {
+    user-select: none;
+    cursor: pointer;
+    margin: 0 auto 0 auto;
+    text-align: start;
+}
+
+.ASC:after {
+    content: "\25B2";
+}
+.DESC:after {
+    content: "\25BC";
+}
+
+#limitSelector {
+    justify-content: flex-end;
+}
+
+#limitSelector input {
+    height: 18px;
+    width: 32px;
+    line-height: 18px;
+    vertical-align: middle;
+    padding: 2px;
+    cursor: pointer;
+}

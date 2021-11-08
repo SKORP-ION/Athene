@@ -1,0 +1,215 @@
+#employee {
+    margin: 0 auto 0 auto;
+    width: 400px;
+}
+
+.EmployeeInfo {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+    justify-content: flex-start;
+    visibility: hidden;
+}
+
+.EmployeeInfo > p {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+p > span {
+    font-family: sans-serif;
+}
+
+.EmployeeInfo > #NameP {
+    justify-content: space-between;
+    margin: 0 2% 0 2%;
+}
+
+#Name {
+    font-size: 2em;
+    text-decoration: none;
+}
+
+#Name a {
+    text-decoration: none;
+    color: black;
+}
+
+#Name a:hover {
+    border-bottom: 1px black solid;
+}
+
+#Table {
+    font-size: 1em;
+}
+
+#Table:before {
+    content: "Табельный номер: ";
+}
+
+#Job {
+    font-size: 1em;
+}
+
+#Job:before {
+    content: "Должность: ";
+}
+
+#Manager {
+    font-size: 1em;
+}
+
+#Manager:before {
+    content: "Руководитель: ";
+}
+
+#Department {
+    font-size: 1em;
+    text-wrap: normal;
+}
+
+#Department:before {
+    content: "Подраздление: ";
+}
+
+#Created_at {
+    font-size: 1em;
+}
+#Created_at:before {
+    content: "Добавлен в базу: ";
+}
+
+.TableContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    height: 500px;
+    margin: 10px auto 0 auto;
+    padding: 10px 5px 10px 20px;
+    border: #3a4854 solid 2px;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(58, 72, 84, 0.44);
+    visibility: hidden;
+}
+
+.TableHeader {
+    margin: 10px auto 10px auto;
+    align-self: center;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: normal;
+}
+.TableHeader * {
+    font-weight: normal;
+    text-align: start;
+}
+
+.TableBody {
+    height: 500px;
+    overflow-x: auto;
+}
+
+table {
+    margin: auto;
+    width: calc(100% - 2px);
+    border-collapse: collapse;
+}
+
+tbody > tr {
+    border-bottom: 2px solid darkgrey;
+    padding-top: 20px;
+    cursor: default;
+    height: 48px;
+    /*transition: height .2s linear, vertical-align .2s linear;*/
+    transition-duration: .2s;
+
+}
+
+tr > td {
+    transition: transform .1s linear;
+    user-select: none;
+    line-height: 48px;
+}
+
+tbody > tr:hover {
+    background-color: #cccddc;
+}
+
+tbody > tr:active {
+    background-color: #ecedff;
+    user-select: none;
+}
+
+.Action {
+    width: 10%;
+}
+
+.Serial {
+    width: 20%;
+}
+
+.Inventory {
+    width: 20%;
+}
+
+.GivenAt {
+    width: 15%;
+}
+.statusIcon {
+    display: block;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.PopUp {
+    position: fixed;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 0;/*30%*/
+    width: 0;/*40%*/
+    top: 0;/*30%*/
+    left: 0;/*30%*/
+    transition: height .2s linear, width .2s linear, top .1s linear, left .1s linear;
+    background-color: white;
+    border: #3a4854 solid 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(58, 72, 84, 0.44);
+    z-index: 3;
+    padding: 10px;
+}
+
+.PopUp > * {
+    margin-bottom: 20px;
+}
+
+.PopUp > .inputText {
+    width: 300px;
+}
+
+.PopUp {
+    height: 100px;
+    width: 80%;
+    resize: none;
+    margin: 10px;
+}
+
+#BlackBackGround {
+    position: fixed;
+    background-color: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+    z-index: 2;
+    visibility: hidden;
+}

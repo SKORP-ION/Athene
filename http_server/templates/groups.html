@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head" }}
+<body>
+{{ template "header" }}
+<main>
+    <link rel="stylesheet" href="/static/css/groups.css">
+    <div class="navBar">
+        <form action="">
+            <input class="inputText" type="text" name="name" placeholder="Название" id="searchName">
+            <input class="inputButton" type="submit" value="Поиск">
+        </form>
+        <button class="inputButton" id="CreateGroup">Создать группу</button>
+    </div>
+    <table class="GroupsTable">
+        <thead>
+        <th class="Name">Имя</th>
+        <th class="Description">Описание</th>
+        <th class="CreatedAt">Создана</th>
+        <th class="Username">Кто создал</th>
+        </thead>
+        <tbody class="TableBody">
+
+        </tbody>
+    </table>
+    <div class="ctxMenu" id="ctxMenu">
+        <span class="menu" id="action">Действие над всей группой</span>
+        <span class="menu" id="delete">Удалить</span>
+        <span class="separator"></span>
+    </div>
+    <div class="PopUp" id="CreatePopup">
+        <p id="CreateMessage">Создание группы</p>
+        <input class="inputText" type="text" id="CreateName" placeholder="Название">
+        <input class="inputText" type="text" id="CreateDescription" placeholder="Описание">
+        <input class="inputButton" type="submit" title="Подтвердить" id="CreateButton" value="Создать">
+    </div>
+    <div class="PopUp" id="DeletePopup">
+        <p id="DeleteMessage">Вы уверены? Чтобы подтвердить удаление, введите точное название группы.</p>
+        <input class="inputText" type="text" id="DeleteName" placeholder="Название">
+        <input class="inputButton" type="submit" title="Подтвердить" id="DeleteButton" value="Удалить">
+    </div>
+    <div id="BlackBackGround"></div>
+    <script src="/static/js/groups/group_popup.js"></script>
+    <script src="/static/js/groups/groups.js"></script>
+    <script src="/static/js/groups/tableActions.js"></script>
+    <script src="/static/js/groups/groups_ctx.js"></script>
+</main>
+{{ template "footer" }}
+</body>
+</html>

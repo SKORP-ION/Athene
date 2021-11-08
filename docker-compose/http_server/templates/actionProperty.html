@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head" }}
+<body>
+{{ template "header" }}
+<main>
+    <link rel="stylesheet" href="/static/css/property.css">
+    <link rel="stylesheet" href="/static/css/actions.css">
+    <div class="topPanel">
+        <a href="" id="goBack" class="inputButton">Назад</a>
+        <button class="inputButton action" id="actionButton1">
+            Выполнить
+        </button>
+    </div>
+    <div class="PropertyInfo">
+        <p>
+            <span>Единый инвентарный номер</span>
+            <input class="inputCheck" type="checkbox" title="Единый инвентарный номер" id="CheckInventory">
+            <input class="inputText" type="text" placeholder="Инвентарный номер" id="InputInventory">
+            <span>Единое название</span>
+            <input class="inputCheck" type="checkbox" title="Единое название" id="CheckName">
+            <input class="inputText" type="text" placeholder="Название" id="InputName">
+        </p>
+        <p>
+            <span>Действие</span>
+            <select class="inputSelect" id="states" title="Действие">
+            </select>
+        </p>
+        <p id="inputsP">
+            <select class="inputSelect" id="groups" title="Группа" style="display: none;"></select>
+            <select class="inputSelect" id="warehouses" title="Склад" style="display: none;"></select>
+            <input class="inputText" type="search" placeholder="Начните вводить фамилию сотрудника" id="employee"
+                   style="display: none;">
+            <div class="datalist" id="staff">
+                <ul></ul>
+            </div>
+        </p>
+        <p>
+            <textarea id="Description" placeholder="Сообщение"></textarea>
+        </p>
+    </div>
+    <div class="TableContainer" id="PropertyActions">
+        <table class="TableHeader">
+            <thead>
+            <th class="Remove"></th>
+            <th class="Serial">Серийный номер</th>
+            <th class="Inventory">Инвентарный номер</th>
+            <th class="Name">Название</th>
+            <th class="Status">Статус</th>
+            </thead>
+        </table>
+        <div class="TableBody">
+            <table id="PropertyTable">
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <button class="inputButton action" id="actionButton2">
+        Выполнить
+    </button>
+    <script src="/static/js/actions/actionsRest.js"></script>
+    <script src="/static/js/actions/checkers.js"></script>
+    <script src="/static/js/actions/actions.js"></script>
+    <script src="/static/js/actions/giveToEmployee.js"></script>
+</main>
+{{ template "footer" }}
+</body>
+</html>

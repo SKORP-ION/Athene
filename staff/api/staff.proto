@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+option go_package = "staff/api";
+
+import "google/protobuf/timestamp.proto";
+
+service Staff {
+  rpc CreateEmployee(StaffEmployee) returns (StatusWithEmployee); //Автоматическое создание локальной копии пользователя
+  rpc GetStaff(GetReq) returns (GetResp); //Получить список сотрудников из базы
+  rpc GetEmployee(GetEmployeeReq) returns (StaffEmployee); //Получить сотрудника по ID
+  rpc GetRecord(SRecord) returns (GetRecordResp); //Получить информацию из записи
+  rpc GetCount(GetReq) returns (CountResp); //Получить число сотрудников
+  rpc GetStaffProp(StaffEmployee) returns (GetStaffPropResp); //Получить имущество, выданное данном сотруднику. Отправляется только id
+  rpc GiveToEmployee(GiveReq) returns (SStatus); //Выдать имущество сотруднику
+  rpc TakeFromEmployee(GiveReq) returns (SStatus); //Получить имущество от сотрудника
+  rpc IsWithEmployee(GiveReq) returns (SStatus); //Сейчас у этого пользователя?
+}
+
+message GetReq{
+  string Search = 1;
+  string TableNumber = 2;
+  string Department = 3;
+  string Manager = 4;
+  string Job = 5;
+  uint32 Offset = 6;
+  uint32 Limit = 7;
+  string Order = 8;
+}
+
+message GetResp {
+  bool Ok = 1;
+  repeated StaffEmployee Staff = 2;
+}
+
+message CountResp {
+  bool Ok = 1;
+  uint32 Count = 2;
+}
+
+message StaffEmployee {
+  uint32 Id = 1;
+  string Table = 2;
+  string Name = 3;
+  string Manager = 4;
+  string Department = 5;
+  string Job = 6;
+  google.protobuf.Timestamp CreatedAt = 7;
+}
+
+message SRecord{
+  uint32 Id = 1;
+  uint32 Property_id = 2;
+  uint32 Staff_id = 3;
+  string username = 4;
+  google.protobuf.Timestamp CreatedAt = 5;
+}
+
+message SStatus {
+  bool Ok = 1;
+  string Message = 2;
+}
+
+message StatusWithEmployee {
+  bool Ok = 1;
+  StaffEmployee Employee = 2;
+}
+
+message GetStaffPropResp {
+  bool Ok = 1;
+  repeated StaffProp Props = 2;
+}
+
+message StaffProp {
+  uint32 Id = 1;
+  string Inventory = 2;
+  string Serial = 3;
+  string Name = 4;
+  google.protobuf.Timestamp CreatedAt = 5;
+  uint32 Warehouse = 6;
+  uint32 State = 7;
+  string Username = 8;
+  google.protobuf.Timestamp GivenAt = 9;
+  uint32 RecordId = 10;
+}
+
+message GiveReq {
+  uint32 EmployeeId = 1;
+  repeated uint32 Ids = 2;
+  string Username = 3;
+}
+
+message GetEmployeeReq {
+  uint32 Id = 1;
+}
+
+message GetRecordResp {
+  StaffEmployee Emp = 1;
+  StaffProp Prop = 2;
+  google.protobuf.Timestamp Date = 3;
+}

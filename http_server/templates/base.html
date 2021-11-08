@@ -1,0 +1,29 @@
+{{ define "head" }}
+<head>
+  <meta charset="UTF-8">
+  <title>Афина. Учет имущества</title>
+  <script src="/static/js/base.js"></script>
+  <link rel="stylesheet" href="/static/css/base.css">
+</head>
+{{ end }}
+
+{{ define "header" }}
+<header>
+  <a href="/" class="headerName">
+    <object data="/static/svg/athene.svg" type="image/svg+xml" class="AtheneIcon"></object>
+    <p class="AtheneName">Афина. Учет имущества</p>
+  </a>
+  <a class="nav" href="/view/getProperty">Имущество</a>
+  <a class="nav" href="/view/groups">Группы</a>
+  <a class="nav" href="/view/staff">Сотрудники</a>
+  <a href="/private/logout" class="Logout">Выйти</a>
+</header>
+{{ end }}
+
+{{ define "footer" }}
+<footer>
+  <p>
+    Отдел эксплуатации информационных систем и платформ
+  </p>
+</footer>
+{{ end }}

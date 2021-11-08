@@ -1,0 +1,110 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navBar * {
+    margin-left: 20px;
+    height: 30px;
+}
+
+#CreateGroup {
+    width: 200px;
+}
+
+th {
+    text-align: start;
+    font-weight: normal;
+}
+
+.Name {
+    width: 20%;
+}
+.Username {
+    width: 15%;
+}
+.CreatedAt {
+    width: 15%;
+}
+
+.GroupsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.GroupsTable tbody  tr {
+    border-bottom: 2px solid darkgrey;
+    padding-top: 20px;
+    cursor: default;
+    transition: background-color .1s ease-in;
+}
+
+.GroupsTable tbody tr:hover {
+    background-color: #cccddc;
+}
+
+.GroupsTable tbody tr:active {
+    background-color: #ecedff;
+    user-select: none;
+}
+
+.selected {
+    background-color: #ecedff;
+    border: #3a4854 dotted 2px;
+}
+
+.GroupsTable tbody  tr > td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-wrap: normal;
+    height: 28px;
+}
+
+.PopUp {
+    position: fixed;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 0;/*30%*/
+    width: 0;/*40%*/
+    top: 0;/*30%*/
+    left: 0;/*30%*/
+    transition: height .2s linear, width .2s linear, top .1s linear, left .1s linear;
+    background-color: white;
+    border: #3a4854 solid 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(58, 72, 84, 0.44);
+    z-index: 3;
+    padding: 10px;
+}
+
+.PopUp > * {
+    margin-bottom: 20px;
+}
+
+.PopUp > .inputText {
+    width: 300px;
+}
+
+.PopUp {
+    height: 100px;
+    width: 80%;
+    resize: none;
+    margin: 10px;
+}
+
+#BlackBackGround {
+    position: fixed;
+    background-color: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+    z-index: 2;
+    visibility: hidden;
+}

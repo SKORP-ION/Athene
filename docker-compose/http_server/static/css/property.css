@@ -1,0 +1,155 @@
+.PropertyInfo {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+
+.PropertyInfo > p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px 0 10px 0;
+}
+
+p > span {
+    font-family: sans-serif;
+}
+
+.PropertyInfo > #NameP {
+    justify-content: space-between;
+    margin: 0 2% 0 2%;
+}
+
+#Name {
+    font-size: 2em;
+    align-self: center;
+}
+
+#StateImg {
+    align-self: center;
+    width: 64px;
+}
+
+#Inventory {
+    font-size: 1.4em;
+}
+#Inventory:before {
+    content: "Инвентарный номер: ";
+}
+
+#Serial{
+    font-size: 1.4em;
+}
+#Serial:before {
+    content: "Серийный номер: ";
+}
+
+#Created_at {
+    font-size: 1em;
+}
+#Created_at:before {
+    content: "Создан: ";
+}
+
+#Updated_at {
+    font-size: 1em;
+}
+#Updated_at:before {
+    content: "Обновлено: "
+}
+
+#Warehouse:before {
+    content: "Площадка: ";
+}
+
+
+
+.TableContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    height: 500px;
+    margin: 10px auto 0 auto;
+    padding: 10px 5px 10px 20px;
+    border: #3a4854 solid 2px;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(58, 72, 84, 0.44);
+}
+
+.ContainerHeader {
+    margin: 10px auto 10px auto;
+    align-self: center;
+    font-size: 1.2em;
+    font-family: sans-serif;
+}
+
+.TableBody {
+    height: 500px;
+    overflow-x: auto;
+}
+
+table {
+    margin: auto;
+    width: calc(100% - 2px);
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+tbody > tr {
+    border-bottom: 2px solid darkgrey;
+    padding-top: 20px;
+    cursor: default;
+    height: 48px;
+    /*transition: height .2s linear, vertical-align .2s linear;*/
+    transition-duration: .2s;
+
+}
+
+tr > td {
+    transition: transform .1s linear;
+    user-select: none;
+    line-height: 48px;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+tbody > tr:hover {
+    background-color: #cccddc;
+}
+
+tbody > tr:active {
+    background-color: #ecedff;
+    user-select: none;
+}
+
+.Action {
+    width: 25%;
+}
+
+.Date {
+    width: 15%;
+    text-align: center;
+}
+
+.User {
+    width: 15%;
+    text-align: center;
+}
+
+.statusIcon {
+    vertical-align: middle;
+}
+
+.selected td {
+    white-space: normal;
+}
+
+#doAction {
+    margin: auto;
+}
+.action {
+    margin: auto;
+}

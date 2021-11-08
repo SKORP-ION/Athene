@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head" }}
+<body>
+{{ template "header" }}
+<main>
+  <link rel="stylesheet" href="/static/css/staff.css">
+  <div class="topPanel">
+    <a href="" id="goBack" class="inputButton">Назад</a>
+    <input class="inputText" id="employee" type="search" placeholder="Начните вводить фамилию">
+    <div class="datalist" id="staff">
+      <ul></ul>
+    </div>
+  </div>
+
+  <div class="EmployeeInfo">
+    <p id="NameP">
+      <span id="Name"></span>
+      <span id="Table"></span>
+    </p>
+    <p id="JobP">
+      <span id="Job"></span>
+
+    </p>
+    <p>
+      <span id="Manager"></span>
+    </p>
+    <p id="DepartmentP">
+      <span id="Department"></span>
+    </p>
+    <p id="DateP">
+      <span id="Created_at"></span>
+    </p>
+  </div>
+  <div class="TableContainer" id="Properties">
+    <table class="TableHeader">
+      <thead>
+      <th class="Action">Состояние</th>
+      <th class="Serial">Серийный номер</th>
+      <th class="Inventory">Инвентарный номер</th>
+      <th class="Name">Название</th>
+      <th class="GivenAt">Выдано</th>
+      </thead>
+    </table>
+    <div class="TableBody">
+      <table id="GroupsTable">
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ctxMenu" id="ctxMenu">
+    <span class="menu" id="openProperty">Открыть</span>
+    <span class="menu" id="openPropertyInNewTab">Открыть в новой вкладке</span>
+    <span class="menu" id="printAction">Сгенерировать расписку</span>
+    <span class="separator"></span>
+    <span class="menu" id="action">Действие</span>
+  </div>
+
+  <div class="PopUp" id="PrintPopUp">
+    <p id="PrintMessage">Сгенерировать расписку</p>
+    <input class="inputText" type="text" id="Ticket" placeholder="Номер заявки">
+    <input class="inputText" type="text" id="NameI" placeholder="Название">
+    <input class="inputButton" type="submit" title="Подтвердить" id="CreateButton" value="Создать">
+  </div>
+
+  <div id="BlackBackGround"></div>
+
+  <script src="/static/js/staff/giveToEmployee.js"></script>
+  <script src="/static/js/staff/popup.js"></script>
+  <script src="/static/js/staff/ctx.js"></script>
+  <script src="/static/js/staff/tableActions.js"></script>
+  <script src="/static/js/staff/staff.js"></script>
+</main>
+{{ template "footer" }}
+</body>
+</html>
